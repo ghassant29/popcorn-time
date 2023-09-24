@@ -1,5 +1,12 @@
 import { useState } from "react";
-
+const containerStyle = {
+  display: "flex",
+  alignItems: "center",
+  gap: "16px",
+};
+const starContainerStyle = {
+  display: "flex",
+};
 export default function StarRating({
   maxRating = 5,
   color = "#fcc419",
@@ -7,17 +14,16 @@ export default function StarRating({
   className = "",
   messages = [],
   defaultRating = 0,
+  onSetRating,
 }) {
   const [rating, setRating] = useState(defaultRating);
   const [tempRating, setTempRating] = useState(0);
-  const containerStyle = {
-    display: "flex",
-    alignItems: "center",
-    gap: "16px",
-  };
-  const starContainerStyle = {
-    display: "flex",
-  };
+
+  function handleRating(rating) {
+    setRating(rating);
+    onSetRating(rating);
+  }
+
   const textStyle = {
     lineHeight: "1",
     margin: "0",
@@ -36,6 +42,7 @@ export default function StarRating({
             onHoverOut={() => setTempRating(0)}
             color={color}
             size={size}
+            onRate={() => handleRating(i + 1)}
           />
         ))}
       </div>
