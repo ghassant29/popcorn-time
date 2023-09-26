@@ -24,7 +24,7 @@ export default function App() {
     setWatched((watched) => [...watched, movie]);
   }
   function handleDeleteWatched(id) {
-    setWatched((watched) => watched.filter((movie) => movie.imdbID));
+    setWatched((watched) => watched.filter((movie) => movie.imdbID !== id));
   }
 
   return (
@@ -84,7 +84,7 @@ function Logo() {
   return (
     <div className="logo">
       <span role="img">🍿</span>
-      <h1>usePopcorn</h1>
+      <h1>PopcornTime</h1>
     </div>
   );
 }
