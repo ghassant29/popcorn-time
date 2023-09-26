@@ -102,18 +102,7 @@ function SearchBar({ query, setQuery }) {
     inputElement.current.focus();
     setQuery("");
   });
-  // useEffect(
-  //   function () {
-  //     function callback(e) {
-  //       if (e.code === "Enter") inputElement.focus();
-  //       setQuery("");
-  //     }
-  //     inputElement.current.focus();
-  //     document.addEventListener("keydown", callback);
-  //     return () => document.addEventListener("keydown", callback);
-  //   },
-  //   [setQuery]
-  // );
+
   return (
     <input
       className="search"
@@ -141,27 +130,7 @@ function Box({ children }) {
     </div>
   );
 }
-// function WatchedBox() {
-//   const [watched, setWatched] = useState(tempWatchedData);
 
-//   const [isOpen2, setIsOpen2] = useState(true);
-
-//   return (
-//     <div className="box">
-//       <button
-//         className="btn-toggle"
-//         onClick={() => setIsOpen2((open) => !open)}
-//       >
-//         {isOpen2 ? "–" : "+"}
-//       </button>
-//       {isOpen2 && (
-//         <>
-
-//         </>
-//       )}
-//     </div>
-//   );
-// }
 function MovieList({ movies, onSelectMovie }) {
   return (
     <ul className="list list-movies">
